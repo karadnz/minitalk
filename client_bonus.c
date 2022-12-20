@@ -6,7 +6,7 @@
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 17:27:43 by mkaraden          #+#    #+#             */
-/*   Updated: 2022/12/20 17:40:53 by mkaraden         ###   ########.fr       */
+/*   Updated: 2022/12/20 18:21:37 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_morse(int pid, int c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(200);
+		usleep(100);
 		bit--;
 	}
 	return (0);
