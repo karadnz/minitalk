@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 17:27:47 by mkaraden          #+#    #+#             */
-/*   Updated: 2022/12/20 17:44:28 by mkaraden         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:45:11 by mkaraden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_server_handler(int signum, siginfo_t *info, void *context)
 	static int	c = 0;
 
 	(void)context;
-	(void)info;
 	if (signum == SIGUSR1)
 	{
 		c += 1 << bit;
@@ -33,6 +32,7 @@ void	ft_server_handler(int signum, siginfo_t *info, void *context)
 		write(1, &c, 1);
 		bit = 7;
 		c = 0;
+		kill(info->si_pid, SIGUSR1);
 	}
 }
 

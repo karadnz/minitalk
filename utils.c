@@ -1,4 +1,16 @@
-#include "utils.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkaraden <mkaraden@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/20 17:08:47 by mkaraden          #+#    #+#             */
+/*   Updated: 2022/12/20 17:08:47 by mkaraden         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minitalk.h"
 
 static int	ft_isspace(int c)
 {
@@ -44,4 +56,14 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (rt * sign);
+}
+
+void	ft_itoa(int num)
+{
+	char	c;
+
+	if (num >= 10)
+		ft_itoa(num / 10);
+	c = (num % 10) + 48;
+	write(1, &c, 1);
 }
